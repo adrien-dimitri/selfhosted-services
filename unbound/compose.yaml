@@ -5,8 +5,14 @@ services:
     ports:
       - "5335:53/udp"
       - "5335:53/tcp"
-    restart: always
+    restart: unless-stopped
     deploy:
       replicas: 1
     environment:
       - DETACH=true
+    networks:
+      - pihole_default
+
+networks:
+  pihole_default:
+    external: true
