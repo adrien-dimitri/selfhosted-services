@@ -1,0 +1,17 @@
+services:
+  rpi-monitor:
+    image: acerbetti/rpi-monitor:latest
+    container_name: rpi-monitor
+    devices:
+      - /dev/vchiq
+      - /dev/vcsm-cma
+    volumes:
+      - /opt/vc:/opt/vc
+      - /boot:/boot
+      - /sys:/dockerhost/sys:ro
+      - /etc:/dockerhost/etc:ro
+      - /proc:/dockerhost/proc:ro
+      - /usr/lib:/dockerhost/usr/lib:ro
+    ports:
+      - "8888:8888"
+    restart: unless-stopped
