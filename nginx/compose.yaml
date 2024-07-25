@@ -1,0 +1,18 @@
+services:
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+    ports:
+      - "8080:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+      - ./htpasswd:/etc/nginx/.htpasswd
+    environment:
+      - ALLOWED_IP=${ALLOWED_IP}
+    networks:
+      - homepage_default
+    restart: unless-stopped
+
+networks:
+  homepage_default:
+    external: true
