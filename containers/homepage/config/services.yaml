@@ -2,17 +2,31 @@
 # For configuration options and examples, please see:
 # https://gethomepage.dev/latest/configs/services
 
-- My First Group:
-    - My First Service:
-        href: http://localhost/
-        description: Homepage is awesome
+- Networking:
+    - Pi-Hole:
+        icon: pi-hole.svg
+        href: {{HOMEPAGE_VAR_PIHOLE_URL_1}}
+        description: DNS Server and Ads sinkhole
+        widget:
+            type: pihole
+            url: {{HOMEPAGE_VAR_PIHOLE_URL_2}}
+            version: 6 
+            key: {{HOMEPAGE_VAR_PIHOLE_API_KEY}}
 
-- My Second Group:
-    - My Second Service:
-        href: http://localhost/
-        description: Homepage is the best
 
-- My Third Group:
-    - My Third Service:
-        href: http://localhost/
-        description: Homepage is 😎
+- Docker:
+    - Portainer:
+        icon: portainer.svg
+        href: {{HOMEPAGE_VAR_PORTAINER_URL_1}}
+        description: Docker environment manager
+        widget:
+            type: portainer
+            url: {{HOMEPAGE_VAR_PORTAINER_URL_2}}
+            env: 2
+            key: {{HOMEPAGE_VAR_PORTAINER_API_KEY}}
+
+- Utilities:
+    - RPi-Monitor:
+        icon: raspberrypi.svg
+        href: {{HOMEPAGE_VAR_RPIMONITOR_URL}}
+        description: Monitoring tool for my Pi
