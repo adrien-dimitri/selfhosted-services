@@ -4,4 +4,6 @@ services:
     container_name: homepage
     volumes:
       - ./config:/app/config
+      - ./images:/app/public/images
+    env_file: .env
     restart: unless-stopped
