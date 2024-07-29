@@ -59,7 +59,7 @@ with Diagram("Home Network", outformat="png", show=False):
             with Cluster("Docker Proxy", graph_attr=container_cluster_attr):
                 dockerproxy = Custom("127.0.0.1:2375", "./resources/dockerproxy.png")
             with Cluster("Nginx", graph_attr=container_cluster_attr):
-                nginx = Custom(":80", "./resources/nginx.png")
+                nginx = Custom(":9000", "./resources/nginx.png")
 
             # Services behind Nginx proxy
             with Cluster("Homepage", graph_attr=container_cluster_attr):
