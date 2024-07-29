@@ -2,29 +2,36 @@
 # For configuration options and examples, please see:
 # https://gethomepage.dev/latest/configs/services
 
-- Networking:
-    - Pi-Hole:
-        icon: pi-hole.svg
-        href: {{HOMEPAGE_VAR_PIHOLE_URL_1}}
-        description: DNS Server and Ads sinkhole
+- Information:
+    - My Raspberry Pi:
         widget:
-            type: pihole
-            url: {{HOMEPAGE_VAR_PIHOLE_URL_2}}
-            version: 6 
-            key: {{HOMEPAGE_VAR_PIHOLE_API_KEY}}
+            type: glances
+            url: {{HOMEPAGE_VAR_GLANCES_URL_1}}
+            metric: info
+            refreshInterval: 30000
+    
+    - CPU Temperature:
+        widget:
+            type: glances
+            url: {{HOMEPAGE_VAR_GLANCES_URL_1}}
+            metric: sensor:cpu_thermal 0
+            refreshInterval: 60000
+            pointsLimit: 50 # optional, defaults to 15
 
 
-- Docker:
+- Admin:
     - Portainer:
         icon: portainer.svg
         href: {{HOMEPAGE_VAR_PORTAINER_URL_1}}
         description: Docker environment manager
+        server: my-docker
+        container: portainer
         widget:
             type: portainer
             url: {{HOMEPAGE_VAR_PORTAINER_URL_2}}
             env: 2
             key: {{HOMEPAGE_VAR_PORTAINER_API_KEY}}
-
+    
     - Kopia:
         icon: kopia.svg
         href: {{HOMEPAGE_VAR_KOPIA_URL_1}}
