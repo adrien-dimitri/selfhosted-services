@@ -1,0 +1,18 @@
+services:
+  monitoring:
+    container_name: glances
+    image: nicolargo/glances:3.4.0.5
+    restart: always
+    pid: host
+    networks:
+      - homepage_default
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /etc/os-release:/etc/os-release:ro
+    environment:
+      - "GLANCES_OPT=-w"
+
+networks:
+  homepage_default:
+    driver: bridge
+    external: true
