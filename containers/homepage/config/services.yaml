@@ -57,7 +57,32 @@
         container: unbound
 
 - Utilities:
+    - Watchtower:
+        icon: watchtower.png
+        description: Automated container updater
+        server: my-docker # The docker server that was configured
+        container: watchtower # The name of the container you'd like to connect
+        widget:
+            type: watchtower
+            url: {{HOMEPAGE_VAR_WATCHTOWER_URL_1}}
+            key: {{HOMEPAGE_VAR_WATCHTOWER_TOKEN}}
+    
+    - Glances:
+        icon: glances.png
+        href: {{HOMEPAGE_VAR_GLANCES_URL_2}}
+        description: Monitoring tool for my Pi
+        server: my-docker
+        container: glances
+        widget:
+            type: glances
+            url: {{HOMEPAGE_VAR_GLANCES_URL_1}}
+            metric: cpu
+            refreshInterval: 30000 # optional - in milliseconds, defaults to 1000 or more, depending on the metric
+            pointsLimit: 50 # optional, defaults to 15
+
     - RPi-Monitor:
         icon: raspberrypi.svg
         href: {{HOMEPAGE_VAR_RPIMONITOR_URL}}
         description: Monitoring tool for my Pi
+        server: my-docker
+        container: rpi-monitor
