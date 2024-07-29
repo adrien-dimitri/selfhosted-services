@@ -40,7 +40,7 @@ with Diagram("Home Network", outformat="png", show=False):
 
     with Cluster("Docker Containers", graph_attr=network_cluster_attr):
         with Cluster("Portainer", graph_attr=container_cluster_attr):
-            portainer = Custom(":9000", "./resources/portainer.png")
+            portainer = Custom(":9443", "./resources/portainer.png")
         
         with Cluster("RPI Monitor", graph_attr=container_cluster_attr):
             rpimonitor = Custom(":8888", "./resources/rpimonitor.png")
@@ -58,7 +58,7 @@ with Diagram("Home Network", outformat="png", show=False):
         with Cluster("Subnet 172.22.0.1", graph_attr=subnetwork_cluster_attr):
             with Cluster("Docker Proxy", graph_attr=container_cluster_attr):
                 dockerproxy = Custom("127.0.0.1:2375", "./resources/dockerproxy.png")
-            with Cluster("Nginx", graph_attr=container_cluster_attr):
+            with Cluster("Nginx Proxy", graph_attr=container_cluster_attr):
                 nginx = Custom(":9000", "./resources/nginx.png")
 
             # Services behind Nginx proxy
