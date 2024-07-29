@@ -25,6 +25,37 @@
             env: 2
             key: {{HOMEPAGE_VAR_PORTAINER_API_KEY}}
 
+    - Kopia:
+        icon: kopia.svg
+        href: {{HOMEPAGE_VAR_KOPIA_URL_1}}
+        description: Backup tool
+        server: my-docker
+        container: kopia
+        widget:
+            type: kopia
+            url: {{HOMEPAGE_VAR_KOPIA_URL_2}}
+            username: {{HOMEPAGE_VAR_KOPIA_USERNAME}}
+            password: {{HOMEPAGE_VAR_KOPIA_PASSWORD}}
+
+- Networking:
+    - Pi-Hole:
+        icon: pi-hole.svg
+        href: {{HOMEPAGE_VAR_PIHOLE_URL_1}}
+        description: DNS Server and Ads sinkhole
+        server: my-docker
+        container: pihole
+        widget:
+            type: pihole
+            url: {{HOMEPAGE_VAR_PIHOLE_URL_2}}
+            version: 5
+            key: {{HOMEPAGE_VAR_PIHOLE_API_KEY}}
+    
+    - Unbound:
+        icon: https://i.imgur.com/5IFcN3G.png
+        description: Recursive DNS resolver
+        server: my-docker
+        container: unbound
+
 - Utilities:
     - RPi-Monitor:
         icon: raspberrypi.svg
